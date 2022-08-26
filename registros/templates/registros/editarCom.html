@@ -1,0 +1,40 @@
+{% extends "inicio/encabezado.html" %} {% block titulo %} Editar Comentario {% endblock %} {% block contenido %} {% load static %}
+<div class="d-grid gap-2">
+    <a class="btn btn-primary" href="{% url 'consultasSQL' %}">Volver</a>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="card m-5" id="card1">
+          <div class="card-body">
+            <h5 class="card-title">Edita tu Comentario :D</h5>
+            <form class="form-horizontal" action="{% url 'editar' comentario.id%}" method="POST" role="form">
+              {%csrf_token%}
+                  <div class="col-md-5">
+                  </div>
+                  <div class="mb-3">
+                      <label class="form-label">Nombre</label>
+                      <input type="text" name="nombre" class="form-control form-control-sm" value="{{comentario.nombre}}"  required>
+                  </div>
+                  <div class="mb-3">
+                      <label class="form-label">Comentario 💭</label>
+                      <textarea class="form-control form-control-sm" name="comentario" rows="3"  required>{{comentario.comentario}} </textarea>
+                  </div>
+                  <div class="form-actions text-right">
+                      <input type="submit" value="Enviar" class="btn btn-primary">
+                  </div>
+                  </form>
+              </div>
+              <br>
+          </div>
+          
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+{% endblock %}

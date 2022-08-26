@@ -1,0 +1,24 @@
+{% extends "inicio/encabezado.html" %} {% block titulo %} Catalogo {% endblock %} {% block contenido %} {% load static %}
+<br>
+
+
+<div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="card m-5">
+          <div class="card-body">
+<form method="POST">
+    {% csrf_token %}
+  <h3>Esta a Punto de Eliminar este Comentario</h3>
+  <p>¿Estas Segur@?</p>
+    <button type="submit" class="btn btn-danger">Aceptar</button>
+    <a href="{% url 'consultasSQL' %}" class="btn btn-primary">Cancelar</a>
+</form>
+          </div>
+        </div>
+        </div>
+        </div>
+       
+
+
+{% endblock %}
