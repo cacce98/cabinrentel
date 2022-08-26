@@ -1,0 +1,63 @@
+{% extends "inicio/encabezado.html" %} {% block titulo %} Inicio {% endblock %} {% block contenido %} {% load static %}
+<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
+ 
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="{% static 'img/a.jpg' %}" class="d-block w-100" alt="...">
+      <div class="carousel" style="position: absolute; margin-top: -500px; margin-left: 250px ;background-color: rgba(77, 20, 20, 0.675);">
+       <center> <h1 style="color: #fff;"><i>Bienvenido a Cabin Rental</i></h1>
+<p style="font-size:20px; font-family: Arial, Helvetica, sans-serif; color: #fff;">
+  Donde podras encontrar la mejor experiencia de alquiler de cabañas, con la mejor calidad y el mejor precio.<br>
+  Visitanos y obten un 10% de descuento en tu primera reserva
+
+</p></center>
+<a href="{% url 'ofertas' %}#ofertas" class="btn btn-primary" style="margin-left: 400px; margin-top: 20px; margin-bottom: 20px; color: #fff;">Ver nuestras Ofertas</a><a class="btn btn-primary" style="margin-left: 20px;" href="{% url 'Catalogo' %}#catalogo">Ver Catalogo Completo</a>
+      </div>
+    </div>
+<br>
+  </div><br><br><br><br>
+    <div class="container" id="ofertas">
+      <h2 style="color: #fff;">Nuestro Catalogo</h2>
+    </div>
+
+    <div class="row" id="catalogo">
+      {% for registro in registros %}
+      <div class="col-sm-4" >
+          <div class="card m-5" id="card1">
+              <img class="card-img-top" src="{{registro.imagen.url}}" alt="Card image cap">
+              <div class="card-body">
+                  <h5 class="card-title">{{registro.nombre}}</h5>
+                  <p class="card-text">Precio: ${{registro.costoDia}}</p>
+                  <p class="card-text">Numero de Personas: {{registro.NumPer}}
+                  <p class="card-text">Numero de Camas: {{registro.NumCamas}}</p>
+                  <p class="card-text">Servicios: {{registro.Servicios}}</p>
+                  <p class="card-text">Ubicacion: {{registro.Ubicacion}}</p>
+
+
+                  <p class="card-text"><small class="text-muted">{{registro.created}}</small></p>
+
+             
+              </div>
+          </div>
+      </div>
+      {% endfor %}
+     
+  </div>
+</div>
+
+<center>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="card m-5">
+        <div class="card-body">
+          <h5 class="card-title">Dejanos tu comentario con forme a tu experiencia en nuestras cabañas ⛺</h5>
+          <a class="btn btn-primary" href="{% url 'consultasSQL' %}">Registrar Comentario</a>  
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</center>
+{% endblock %}
